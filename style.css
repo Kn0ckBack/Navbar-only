@@ -1,0 +1,96 @@
+*{
+    margin:0;
+    padding:0;  
+    box-sizing:border-box;
+}
+
+html{
+    font-family:helvetica;
+    font-size:16px;
+}
+
+/* nav{
+
+} */
+
+nav ul{
+    display: flex;
+    flex-direction: column;
+    background: #0070c00c;
+}
+
+nav ul li{
+    list-style:none;
+}
+
+nav ul li:hover {
+    background: #0404a044;
+    /*   background: rgba(0,0,0,0.25);   */
+    transition:500ms ease-out;
+}
+
+.arrow{
+    font-family: FontAwesome;
+    float: right;
+}
+.arrow-down::after{
+    content: "\f107";
+}
+.arrow-right::after{
+    content: "\f105";
+}
+
+nav ul li a{
+    text-decoration:none;
+    padding:.5em 1em;
+    display: block;
+    color: #0070c0;
+}
+
+@media only screen and (max-width:567px){
+    .has-children ul li a {
+        padding-left: 4em;
+    }
+    .has-children ul .has-children ul a {
+        padding-left: 6em;
+    }
+    .arrow-down::after{
+        content: "\f107";
+    }
+}
+    
+@media only screen and (min-width:567px){
+    nav ul {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    nav ul li{
+        position: relative;
+        flex:1 0 auto;
+        text-align:left;
+    /*     flex-grow/flex-shrink/flex-basis */
+    }
+    .has-children ul, .has-children ul .has-children ul{
+        display: none;
+        /* display: flex;
+        flex-direction: column; */
+        width:100%;
+        position: absolute;
+    }
+    .has-children ul .has-children ul{
+        left: 100%;
+        top: 0;
+    }
+    nav ul li:hover ul, .has-children ul .has-children:hover ul{
+        display: flex;
+        flex-direction: column;
+    }
+
+    
+
+    /* nav ul li ul li:hover ul{
+        display: block ;
+        display: flex;
+        visibility: visible; 
+    }*/
+}
